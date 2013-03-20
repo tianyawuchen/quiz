@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="qHistoryScan" default="build" basedir=".">
+	<!-- 定义模块名 -->
+	<property name="module" value="qHistoryScan" />
+	<!-- 定义前端/后端模块 -->
+	<property name="site" value="frontend" />
+	
+	<!--定义输入输出路径-->
+	<property name="output" value="output" />
+	
+	<property name="view" value="view" />
+	<property name="outview" value="views" />
+	
+	<property name="static" value="static" />
+	<property name="outstatic" value="assets" />
+	
+	<!-- 初始化 -->
+	<target name="init">
+		<mkdir dir="../${output}" />
+	</target>
+	
+	<!-- 部署view到相应模块 -->
+	<target name="view">
+		<copy todir="../${output}/${site}/${outview}/${module}">
+			<fileset dir="${view}"/>
+		</copy>
+	</target>
+	
+	<!-- 部署模块静态文件到静态目录下 -->
+	<target name="static">
+		<copy todir="../${output}/${outstatic}/${module}">
+			<fileset dir="${static}">
+				<include name="*.js"/>
+				<include name="*.css"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<!-- 进行构建 -->
+	<target name="build">
+		<echo>${module} module building...</echo>
+		<ant target="init"/>
+		<ant target="view" />
+		<ant target="static" />
+		<echo>${module} module build success!</echo>
+	</target>
+</project>

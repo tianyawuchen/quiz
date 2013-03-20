@@ -1,0 +1,239 @@
+/* quiz component style sheet */
+#quiz{
+	position: relative;
+	width: 100%;
+	min-width: 450px;
+	height: 100%;
+	font-size: 15px;
+	font-family: Microsoft YaHei;
+	color: #434343;
+	overflow-x:hidden;
+	overflow-y: scroll;
+}
+::selection{ 
+	background:#ff6060;
+	color:#FFF;
+}
+#quiz a{
+	text-decoration: none;
+	color: #434343;
+}
+#quiz a:hover{
+	text-decoration: none;
+	color: #3fa1ff;
+	background: none;
+}
+.quiz_clear{
+	clear:both;
+}
+
+#quiz .quiz_title{
+	position: relative;
+	width: 100%;
+	height: 30px;
+	color:#fff;
+	background: #3fa1ff;
+	line-height: 25px;
+}
+#quiz .quiz_title h2{
+	font-size: 18px;
+	font-family: Microsoft YaHei;
+	margin-left: 15px;
+	color:#fff;
+}
+#quiz .quiz_title a{
+	display: block;
+	width:60px;
+	height: 28px;
+	line-height: 30px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background: #3fa1ff;
+	border:1px solid #3fa1ff;
+	text-align: center;
+	color: #fff;
+
+}
+#quiz .quiz_title a:hover{
+	background: #ebebeb;
+	color:#3fa1ff;
+}
+.quiz_nav{
+	position: relative;
+	width: 100%;
+	height: 30px;
+	background: #ebebeb;
+	line-height: 30px;
+}
+.quiz_nav a{
+	margin: 0px 15px;
+}
+.quiz_time{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 150px;
+	text-align: right;
+	margin-right: 15px;
+}
+/* quiz area */
+#quiz_area_wrap{
+	float:left;
+	width: 100%;
+	background: #ffffff;
+	word-wrap:break-word;
+	margin-right: -200px;
+	padding-right: 100px;
+	min-height: 200px;
+}
+.quiz_area{
+	width: 100%;
+}
+.quiz_area_question{
+	/*width: 100%;*/
+	margin-right: 100px;
+}
+.quiz_area_question_index{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background: #ebebeb;
+	border: 1px solid #3fa1ff;
+	color: #3fa1ff;
+	border-radius: 10px;
+	text-align: center;
+	margin-right: 15px;
+	margin-top: 5px;
+}
+.quiz_area_answer{
+	float:left;
+	width: 80%;
+}
+.quiz_area_answer_ele{
+	float:left;
+	margin:5px 15px;
+}
+#quiz .quiz_area_answer_ele a{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	color: #ffffff;
+	background: #c1b9aa;
+	border:1px solid #ebebeb;
+	border-radius: 10px;
+	margin: 0px 5px;
+	overflow: hidden;
+	text-align:center;
+}
+#quiz .quiz_score_head{
+	background: #3fa1ff;
+	padding-bottom: 10px;
+}
+#quiz .quiz_area_answer_ele .quiz_selected{
+	background: #3fa1ff;
+	/*border:1px solid #ffcc33;*/
+}
+#quiz .quiz_score_title_b{
+	color:#fff;
+	font-size: 30px;
+	font-family: Microsoft YaHei;
+	font-weight: bold;
+	margin:0px 15px;
+}
+#quiz .quiz_score_title_m{
+	color:#fff;
+	font-size: 20px;
+	font-family: Microsoft YaHei;
+	margin:10px 15px 0px 15px;
+}
+#quiz .quiz_score_num{
+	font-size: 30px;
+	padding:0px 15px;
+	margin:0px 15px;
+	background: #ff6060;
+	border-radius: 15px;
+	color:#fff;
+}
+#quiz .quiz_result_err{
+	padding:10px 15px;
+	border-top:1px solid #cccccc;
+}
+#quiz .quiz_result_err h4{
+	margin:0px;
+}
+#quiz .quiz_result_err p{
+	margin:0px;
+}
+#quiz .quiz_result_bg_A{
+	background: #ffd4fa;
+}
+#quiz .quiz_result_bg_B{
+	background: #ebebeb;
+}
+
+/* quiz list */
+#quiz_list{
+	float: left;
+	width: 100px;
+}
+#quiz_list .quiz_list_index{
+	display: block;
+	width: 25px;
+	height: 25px;
+	border-radius: 5px;
+	float: left;
+	margin: 4px;
+	background: #686868;
+	color:#dddddd;
+	text-align: center;
+	opacity: 0.6;
+	filter:alpha(opacity=60);
+	-webkit-transition: background .3s ease-out,color .3s ease-out;
+	transition: background .3s ease-out,color .3s ease-out;
+}
+#quiz_list .quiz_list_index:hover{
+	background: #00aeef;
+	color:#eeeeee;
+	-webkit-transition: background .3s ease-in,color .3s ease-in;
+	transition: background .3s ease-in,color .3s ease-in;
+}
+#quiz_list .quiz_list_selected{
+	background: #ff8d6f;
+	color:#ffffff;
+	-webkit-transition: background .3s ease-in,color .3s ease-in;
+	transition: background .3s ease-in,color .3s ease-in;
+}
+#quiz_list .quiz_list_now{
+	background: #00aeef;
+	color:#eeeeee;
+	-webkit-transition: background .3s ease-in,color .3s ease-in;
+	transition: background .3s ease-in,color .3s ease-in;
+}
+
+/* quiz operator */
+.quiz_operator{
+	width:100%;
+	height:30px;
+	line-height: 30px;
+	background: #ebebeb;
+	text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="common" default="build" basedir=".">
+	<!-- 定义输入输出路径 -->
+	<property name="module" value="common" />
+	<property name="output" value="output" />
+	<property name="front" value="frontend" />
+	<property name="back" value="backend" />
+	<property name="model" value="models" />
+	<property name="outmodel" value="models" />
+	<property name="help" value="helpers" />
+	<property name="outhelp" value="helpers" />
+	<property name="static" value="static"/>
+	<property name="outstatic" value="assets" />
+	<property name="controller" value="controller" />
+	<property name="inits" value="init" />
+	
+	
+	<!-- 初始化 -->
+	<target name="init">
+		<mkdir dir="../${output}" />
+	</target>
+	
+	<!-- 部署入口文件 -->
+	<target name="inits">
+		<copy todir="../${output}/${front}">
+			<fileset dir="${inits}" >
+				<include name="quiz_front.php"/>
+			</fileset>
+		</copy>
+		<copy todir="../${output}/${back}">
+			<fileset dir="${inits}">
+				<include name="quiz_back.php"/>
+			</fileset>
+		</copy>
+		
+		<move file="../${output}/${front}/quiz_front.php" tofile="../${output}/${front}/quiz.php"/>
+		<move file="../${output}/${back}/quiz_back.php" tofile="../${output}/${back}/quiz.php"/>
+	</target>
+	
+	<!-- 部署model分别到前后端目录下 -->
+	<target name="model">
+		<copy todir="../${output}/${front}/${outmodel}">
+			<fileset dir="${model}" />
+		</copy>
+		<copy todir="../${output}/${back}/${outmodel}">
+			<fileset dir="${model}" />
+		</copy>
+	</target>
+	
+	<!-- 部署help分别到前后端目录下 -->
+	<target name="help">
+		<copy todir="../${output}/${front}/${outhelp}">
+			<fileset dir="${help}" >
+				<include name="ajax.php"/>
+				<include name="util_front.php"/>
+			</fileset>
+		</copy>
+		<copy todir="../${output}/${back}/${outhelp}">
+			<fileset dir="${help}">
+				<include name="ajax.php"/>
+				<include name="util_back.php"/>
+			</fileset>
+		</copy>
+		
+		<move file="../${output}/${front}/${outhelp}/util_front.php" tofile="../${output}/${front}/${outhelp}/util.php"/>
+		<move file="../${output}/${back}/${outhelp}/util_back.php" tofile="../${output}/${back}/${outhelp}/util.php"/>
+	</target>
+	
+	<!-- 部署controller分别到前后端目录下 -->
+	<target name="controller">
+		<copy todir="../${output}/${front}">
+			<fileset dir="${controller}" >
+				<include name="controller_front.php"/>
+			</fileset>
+		</copy>
+		<copy todir="../${output}/${back}">
+			<fileset dir="${controller}">
+				<include name="controller_back.php"/>
+			</fileset>
+		</copy>
+		
+		<move file="../${output}/${front}/controller_front.php" tofile="../${output}/${front}/controller.php"/>
+		<move file="../${output}/${back}/controller_back.php" tofile="../${output}/${back}/controller.php"/>
+	</target>
+	
+	<!-- 部署静态文件 -->
+	<target name="static">
+		<copy todir="../${output}/${outstatic}">
+			<fileset dir="${static}" />
+		</copy>
+	</target>
+	
+	<!-- 进行构建 -->
+	<target name="build">
+		<echo>${module} module building...</echo>
+		<ant target="init"/>
+		<ant target="inits"/>
+		<ant target="model" />
+		<ant target="help" />
+		<ant target="controller" />
+		<ant target="static" />
+		<echo>${module} module build success!</echo>
+	</target>
+</project>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="all" default="build" basedir=".">
+	<property name="output" value="output"/>
+	
+	<!-- 初始化 -->
+	<target name="init">
+		<mkdir dir="${output}" />
+	</target>
+	
+	<!-- 对所有模块进行构建 -->
+	<target name="exec">
+		<echo>module building...</echo>
+		<ant antfile="common/build.xml" inheritall="false" inheritrefs="false"/>
+		<ant antfile="qLib/build.xml" inheritall="false" inheritrefs="false"/>
+		<ant antfile="qList/build.xml" inheritall="false" inheritrefs="false"/>
+		<ant antfile="qHistory/build.xml" inheritall="false" inheritrefs="false"/>
+		<ant antfile="qHistoryScan/build.xml" inheritall="false" inheritrefs="false"/>
+		<ant antfile="qBack/build.xml" inheritall="false" inheritrefs="false"/>
+		<ant antfile="qBackList/build.xml" inheritall="false" inheritrefs="false"/>
+		<ant antfile="qListAdd/build.xml" inheritall="false" inheritrefs="false"/>
+		<ant antfile="qListModify/build.xml" inheritall="false" inheritrefs="false"/>
+		<echo>module build success!</echo>
+	</target>
+	
+	<target name="pack">
+		<zip destfile="${output}.zip" 
+			 basedir="${output}"/>
+	</target>
+	
+	<!-- 进行构建 -->
+	<target name="build">
+		<ant target="init"/>
+		<ant target="exec" />
+		<ant target="pack"/>
+	</target>
+</project>
